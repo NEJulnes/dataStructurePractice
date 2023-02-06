@@ -1,29 +1,39 @@
 class Node {
-  constructor(data) {
-    this.data = data;
-    this.next = null;
-  }
-  SetData(data) {
-    this.data = data;
+	constructor(data) {
+		this.data = data;
+		this.next = null;
 	}
-  SetPositionData(index, data) {
+	SetData(data) {
+		this.data = data;
+	}
+	SetPositionData(index, data) {
 		let n = this;
 		for(index; index > 0; --index) n = n.next;
 		if(n != null) n.SetData(data);
 		else console.log('Index does not exist.');
 	}
-  AddNode(data) {
-    let n = this;
-    while(n.next != null) n = n.next;
-    n.next = new Node(data);
-  }
-  Print() {
-    let n = this;
-    console.log('Printing nodes...');
-    while(n.next != null) {
-      console.log(n.data);
-      n = n.next;
-    }
-    console.log(n.data);
-  }
+	InsertNode(index, data) {
+		let n = this;
+		for(index; index > 0; --index) n = n.next;
+		if(n != null) {
+			let temp = new Node(data);
+			temp.next = n.next;
+			n.next = temp;
+		}
+		else console.log('Index does not exist.');
+	}
+	AddNode(data) {
+		let n = this;
+		while(n.next != null) n = n.next;
+		n.next = new Node(data);
+	}
+	Print() {
+		let n = this;
+		console.log('Printing nodes...');
+		while(n.next != null) {
+			console.log(n.data);
+			n = n.next;
+		}
+		console.log(n.data);
+	}
 }
