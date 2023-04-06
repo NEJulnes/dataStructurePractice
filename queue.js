@@ -50,7 +50,7 @@ class Queue {
 		else return console.log('Nothing in queue...')
 	}
 	print() {
-		this.items.Print();
+		return this.items.print();
 	}
 	get length() {
 		return this.count;
