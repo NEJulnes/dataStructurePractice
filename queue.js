@@ -34,22 +34,22 @@ class Queue {
 		this.count = 0;
 		this.items = null;
 	}
-	Enqueue(item) {
-		if(this.items != null) this.items.AddNode(item);
+	enqueue(item) {
+		if(this.items != null) this.items.push(item);
 		else this.items = new Node(item);
 		this.count++;
 	}
-	Dequeue() {
+	dequeue() {
 		const temp = this.items.data;
 		this.items = this.items.next;
 		this.count--;
 		return temp;
 	}
-	Peek() {
+	peek() {
 		if(this.items != null) return this.items.data;
 		else return console.log('Nothing in queue...')
 	}
-	Print() {
+	print() {
 		this.items.Print();
 	}
 	get length() {
